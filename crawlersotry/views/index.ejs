@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>免费小说 <%=category%></title>
+    <link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="/lib/jquery-easyui-1.5/jquery.min.js"></script>
+    <script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<% include head.ejs %>
+<div style="overflow: hidden ;zoom:1">
+<div style="margin-left: 600px;">
+    <div class="btn-group">
+        <%if(page>1){%>
+            <a  href="/?category=<%=category%>&searchTxt=<%=searchTxt%>&page=<%=page-1%>"  class="btn btn-primary"><span class="glyphicon glyphicon-search">上一页</span></a>
+        <%}%>
+        <%if(isNextPage){%>
+             <a href="/?category=<%=category%>&searchTxt=<%=searchTxt%>&page=<%=page+1%>"  class="btn btn-primary"><span class="glyphicon glyphicon-search">下一页</span></a>
+        <%}%>
+    </div>
+ </div>
+    <%for(var item of rows){%>
+    <div class="col-sm-6 col-md-3 col-lg-3" style="margin-top: 15px">
+        <img src="<%=item.imgUrl%>" width="260" height="280"/>
+        <h4 style="text-align: center;font-family: 微软雅黑;font-weight: bold"><%=item.name%></h4>
+        <h5 style="text-align: center;margin-top: -15px;font-family: 微软雅黑;"><%=item.author%></h5>
+        <div style="overflow: hidden;width:260px;height:150px;margin-top: 10px ;font-family: 微软雅黑;">
+            <%=item.description%>
+        </div>
+        <div class="btn-group" style="margin-top:30px;margin-left: 40px">
+            <button type="button"  class="btn btn-primary"style="font-family: 微软雅黑;" ><a href="/viewnovel?id=<%=item._id%>" style="color:black"> 查看章节</a></button>
+            <button type="button"  class="btn btn-default " style="font-family: 微软雅黑;"><a href="/viewnovel?id=<%=item._id%>"> 阅读全文 </a></button>
+</div>
+</div>
+    <%}%>
+</div>
+</div>
+<% include footer.ejs %>
+
+</body>
+</html>

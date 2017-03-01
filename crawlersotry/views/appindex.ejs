@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>免费小说</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/lib/mui-master/dist/css/mui.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="/lib/jquery-easyui-1.5/jquery.min.js"></script>
+    <script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#F6EBBC">
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
+    <a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #999;"></a>
+    <h1 class="mui-title">免费小说APP</h1>
+
+</header>
+<div style="margin-top: 46px"><% include head.ejs %></div>
+<div style="overflow: hidden ;zoom:1">
+<%for(var item of rows){%>
+<div class="col-sm-4 col-md-2 col-lg-3" style="margin-top: 35px;">
+    <div style="width:250px;height:350px;margin-top:20px;margin-left:20px;text-align:center;border:1px solid #ccc;box-shadow: 2px 2px 2px #ccc">
+       <div><img src="<%=item.imgUrl%>" width="120px" height="150px"/></div>
+        <div style="margin-top:10px"><span style="text-align: center;font-family: 微软雅黑;font-weight: bold;margin-top: 10px;font-size:18px"><%=item.name%></span></div>
+         <h4 style="text-align: center;font-family: 微软雅黑;"><%=item.author%></h4>
+        <div style="overflow:hidden;width:250px;height:100px;font-family: 微软雅黑"> <%=item.description%></div>
+    </div>
+    <div class="btn-group" style="margin-top:20px;margin-left: 40px">
+        <button type="button"  class="btn btn-primary"style="font-family: 微软雅黑;" ><a href="/viewnovel?id=<%=item._id%>" style="color:black"> 查看章节</a></button>
+        <button type="button"  class="btn btn-default " style="font-family: 微软雅黑;"><a href="/viewnovel?id=<%=item._id%>"> 阅读全文 </a></button>
+    </div>
+</div>
+<%}%>
+</div>
+<% include footer.ejs %>
+<script src="/lib/mui-master/dist/js/mui.min.js"></script>
+
+
+</body>
+</html>
